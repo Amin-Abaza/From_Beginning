@@ -13,6 +13,7 @@ jobs:
       - run:
           name: "Echo hello"
           command: "echo Hello"
+  
   Print-world:
     docker:
       - image: circleci/node:13.8.0
@@ -21,6 +22,15 @@ jobs:
       - run:
           name: "print world"
           command: "echo World"
+  Print-Environment-Variable:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          name: "Print environment variable"
+          command: "echo my name is $MY_Name"
+
 
   
 
@@ -33,3 +43,4 @@ workflows:
       - Print-world:
           requires:
             - Print-hello
+      - Print-Environment-Variable
