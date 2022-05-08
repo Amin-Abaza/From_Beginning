@@ -20,7 +20,7 @@ jobs:
       - checkout
       - run:
           name: "print world"
-          command: "echo World :)"
+          command: "echo World"
 
   
 
