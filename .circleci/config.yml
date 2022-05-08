@@ -5,8 +5,9 @@ version: 2.1
 commands:
   # reuse command in jobs to reduce commands
   print_pipeline_id:
-    - run:
-        command: "echo ${CIRCLE_WORKFLOW_ID}"
+    steps:
+      - run:
+          command: "echo ${CIRCLE_WORKFLOW_ID}"
 jobs:
   # save cache and used it in other jobs
   save_hello_world_output:
