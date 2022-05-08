@@ -19,8 +19,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "print world"
-        command: "echo World :)"
+          name: "print world"
+          command: "echo World :)"
 
   
 
