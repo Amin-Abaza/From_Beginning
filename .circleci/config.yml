@@ -34,6 +34,15 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+  # job fail 
+  failed-job:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+      - run:
+          command: echo "job fail"
+          when: on_fail
 
   
   Print-world:
@@ -68,3 +77,4 @@ workflows:
       - Print-world
       - Print-Environment-Variable
       - print-pipeline-id
+      - failed-job
