@@ -13,6 +13,13 @@ commands:
                 aws cloudformation delete-stack --stack-name RollingbackStack
              
 jobs:
+  aws-cli-example:
+    executor: aws-cli/default
+    steps:
+      - checkout
+      - aws-cli/setup:
+          profile-name: example
+      - run: echo "Run your code here
   create_infrastructure:
     docker:
       - image: amazon/aws-cli
@@ -40,5 +47,8 @@ jobs:
 workflows:
   my-workflow:
     jobs:
+      - aws-cli-example:
+          context: aws
       - create_infrastructure
       - smoke_test
+
