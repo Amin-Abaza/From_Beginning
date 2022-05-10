@@ -25,6 +25,7 @@ jobs:
                 --template-file template.yml \
                 --stack-name RollingbackStack \
                 --region us-east-1
+      - destroy_environment
   smoke_test:
     docker:
       - image: alpine:latest
